@@ -25,19 +25,15 @@ ftp.cwd('/ZJWARRS/DATA_HISTORY/%s' % (time[0:4]))
 print("get files")
 allfiles = ftp.nlst()
 print("search target files")
-targetfile = []
 print("------------------- 154 server target WARRS files -------------------")
 for f in allfiles:
 	if time in f: 
-		targetfile.append(f)
 		print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 print("------------------- 154 server target WARMS files -------------------")
 ftp.cwd('/ZJWARMS/DATA_HISTORY/%s' % (time[0:4]))
 allfiles = ftp.nlst()
-targetfile = []
 for f in allfiles:
         if time in f:
-                targetfile.append(f)
 		print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 
 
@@ -52,23 +48,13 @@ ftp.cwd('/realtimedata/nafp/ZJWARRS/nc')
 print("get files")
 allfiles = ftp.nlst()
 print("search target files")
-targetfile = []
 print("------------------- 179 server target WARRS files -------------------")
 for f in allfiles:
 	if time in f: 
-		targetfile.append(f)
 		print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 print("------------------- 179 server target WARMS files -------------------")
 ftp.cwd('/realtimedata/nafp/ZJWARMS/nc')
 allfiles = ftp.nlst()
-targetfile = []
 for f in allfiles:
         if time in f:
-                targetfile.append(f)
                 print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
-
-
-
-
-
-
