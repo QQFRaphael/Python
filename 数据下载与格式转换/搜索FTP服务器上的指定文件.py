@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # QQF @ 2023-07-12
-# this script check the WARRS and WARMS sfiles in 154 and 179 server
+# this script check the WARRS and WARMS files in 154 and 179 server
 # example: ./check-ftp --time=2023
 # example: ./check-ftp --time=202307
 # example: ./check-ftp --time=20230708
@@ -30,7 +30,7 @@ print("------------------- 154 server target WARRS files -------------------")
 for f in allfiles:
 	if time in f: 
 		targetfile.append(f)
-		print(f)
+		print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 print("------------------- 154 server target WARMS files -------------------")
 ftp.cwd('/ZJWARMS/DATA_HISTORY/%s' % (time[0:4]))
 allfiles = ftp.nlst()
@@ -38,7 +38,7 @@ targetfile = []
 for f in allfiles:
         if time in f:
                 targetfile.append(f)
-                print(f)
+		print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 
 
 print("=========================== CHECK 10.135.30.179 SERVER ===========================")
@@ -57,7 +57,7 @@ print("------------------- 179 server target WARRS files -------------------")
 for f in allfiles:
 	if time in f: 
 		targetfile.append(f)
-		print(f)
+		print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 print("------------------- 179 server target WARMS files -------------------")
 ftp.cwd('/realtimedata/nafp/ZJWARMS/nc')
 allfiles = ftp.nlst()
@@ -65,7 +65,7 @@ targetfile = []
 for f in allfiles:
         if time in f:
                 targetfile.append(f)
-                print(f)
+                print("%s: %4.2fG" % (f,ftp.size(f)/1024./1024./1024.))
 
 
 
